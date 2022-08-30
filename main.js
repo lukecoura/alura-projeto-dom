@@ -4,16 +4,14 @@ const braço = document.querySelector('#braço')
 
 const controle = document.querySelectorAll('.controle-ajuste')
 
-somar.addEventListener('click', () => {
-    manipulaDados('somar')
-})
-
-subtrair.addEventListener('click', () => {
-    manipulaDados('subtrair')
+controle.forEach( (elemento) => {
+    elemento.addEventListener('click', (evento) => {
+        manipulaDados(evento.target.textContent)
+    })
 })
 
 function manipulaDados(operacao) {
-    if (operacao === 'subtrair') {
+    if (operacao === '-') {
         braço.value = parseInt(braço.value) - 1
     } else {
         braço.value = parseInt(braço.value) + 1 
